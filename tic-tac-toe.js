@@ -3,6 +3,7 @@ const cells = document.querySelectorAll(".cell");
 const positions = document.querySelectorAll(".position");
 const play = document.querySelector(".play")
 const restart = document.querySelector('.restart')
+const reset = document.querySelector('.reset')
 let playerWin = Number(document.querySelector(".playerhaswon").textContent)
 
 // player's move
@@ -17,7 +18,7 @@ for(let position of positions){
         }
         if(playerWon()){
             
-            playerWin =+ 1
+            playerWin = playerWin + 1
             document.querySelector(".playerhaswon").textContent = playerWin
             
         }
@@ -58,6 +59,21 @@ restart.addEventListener("click", () =>{
         }
     }
     
+})
+// reset game
+reset.addEventListener("click", () =>{
+    for (let i = 0; i < cells.length; i++) {
+        if (cells[i].textContent === "X" || cells[i].textContent === "O") {
+            cells[i].textContent = i + 1
+            cells[i].classList.remove("played")
+        }
+        if (positions[i].classList.contains("disabled")) {
+            positions[i].classList.remove("disabled")
+        }
+        document.querySelector(".playerhaswon").textContent = 0
+        document.querySelector(".win").textContent = 0
+        playerWin = 0
+    }
 })
 
 // player won
