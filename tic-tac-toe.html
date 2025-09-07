@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe game</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tic-tac-toe.css">
+</head>
+<body>
+    <div class="container">
+        <section class="board">
+            <h1 class="title title1">Tic-Tac-Toe</h1>
+            <div class="game">
+                <div class="cell cell1" data-cell >1</div>
+                <div class="cell cell2" data-cell >2</div>
+                <div class="cell cell3" data-cell >3</div>
+                <div class="cell cell4" data-cell >4</div>
+                <div class="cell cell5" data-cell >5</div>
+                <div class="cell cell6" data-cell >6</div>
+                <div class="cell cell7" data-cell >7</div>
+                <div class="cell cell8" data-cell >8</div>
+                <div class="cell cell9" data-cell >9</div>
+            </div>
+            <div class="rounds">
+                <p>Player won <span class="playerhaswon">0</span> games</p>
+                <p>Computer won <span class="win">0</span> games</p>
+            </div>
+            <button class="restart">Restart</button>
+        </section>
+        <section class="part">
+            <h1 class="title title2">Choose a position</h1>
+            <div class="positions">
+                <button class="position" >1</button>
+                <button class="position" data-position="1">2</button>
+                <button class="position" data-position="2">3</button>
+                <button class="position" data-position="3">4</button>
+                <button class="position" data-position="4">5</button>
+                <button class="position" data-position="5">6</button>
+                <button class="position" data-position="6">7</button>
+                <button class="position" data-position="7">8</button>
+                <button class="position" data-position="8">9</button>
+                
+            </div>
+            <button class="play">Computer Move</button>
+        </section>
+    </div>
+    
+
+
+    <script src="tic-tac-toe.js"></script>
+</body>
+</html>

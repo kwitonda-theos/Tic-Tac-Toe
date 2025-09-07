@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Jost", sans-serif;
+}
+body{
+    overflow-y: hidden;
+}
+.container{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.title{
+    text-align: center;
+    padding: 20px 0px;
+    font-size: 2rem;
+    font-weight: 600;
+    
+}
+
+
+
+/* Left Side */
+.board{
+    background: #FFF7E6;
+    color: #102E4A;
+}
+.game{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin:0 auto;
+    width: 60%;
+    
+}
+.cell{
+    
+    border: 5px solid #102E4A;
+    padding: 40px 0px;
+    border-top: none;
+    border-left: none;
+    color: #00000086;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    
+}
+.cell3, .cell6, .cell9{
+    border-right: none;
+    
+}
+.cell7, .cell8, .cell9{
+    border-bottom: none;
+}
+.rounds{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.2rem;
+}
+.restart{
+    display: block;
+    margin: 20px auto;
+    padding: 10px 50px;
+    font-size: 1rem;
+    background-color: #102E4A;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.restart:hover{
+    background-color: #0b1a2a;
+    transition: all 0.3s ease;
+}
+
+/* Right Side */
+.part{
+    background-color: #102E4A;
+}
+.title2{
+    color: #FFF7E6;
+    margin-bottom: 30px;
+}
+.positions{
+    display: grid;
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.position{
+    width:90px;
+    height:90px;
+    margin: 10px;
+    font-size: 2rem;
+    background-color: #FFF7E6;
+    color: #102E4A;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.disabled{
+    background-color: #00000086;
+    color: #fff;
+    cursor: not-allowed;
+    transform:none !important;
+}
+.disabled:hover {
+    background-color: #00000086;
+    transform: none;
+}
+.position:hover{
+    background-color: #fff7e6ee;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+    
+}
+
+.played{
+    color: #102E4A;
+    font-size: 1.6rem;
+}
+.play{
+    background-color: #FFF7E6;
+    color: #102E4A;
+    font-size: 1.6rem;
+    padding: 10px 65px ;
+    margin: 40px 0px 0px 190px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
+.play:hover{
+    background-color: #FFF7E6ee;
+    transform: scale(1.1);
+    transition: all ease 0.3s;
+}
