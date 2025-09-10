@@ -5,6 +5,8 @@ const play = document.querySelector(".play")
 const restart = document.querySelector('.restart')
 const reset = document.querySelector('.reset')
 let playerWin = Number(document.querySelector(".playerhaswon").textContent)
+let computerWin = Number(document.querySelector(".win").textContent)
+let tie = document.querySelector(".tie")
 
 // player's move
 for(let position of positions){
@@ -20,8 +22,23 @@ for(let position of positions){
             
             playerWin = playerWin + 1
             document.querySelector(".playerhaswon").textContent = playerWin
-            
+            tie.textContent = "You won! 🎉,press restart or reset to continue"
+            positions.forEach(pos => pos.classList.add("disabled"))
         }
+        if(!playerWon() && !computerWon()){
+            let availableCells = []
+            for(let cell of cells){
+                if(!(cell.textContent === "X" || cell.textContent === "O")){
+                    availableCells.push(cell);
+                }
+            }
+            if(availableCells.length === 0){
+                tie.textContent = "It's a tie!"
+            }else{
+                tie.textContent = ""
+            }
+        }
+        
     })
     
 }
@@ -45,7 +62,28 @@ function computerMove(){
     playedCell.classList.add('played')
     
 }
-play.addEventListener("click", computerMove)
+play.addEventListener("click", computerMove);
+play.addEventListener("click", () =>{
+    if(computerWon()){
+        computerWin = computerWin + 1
+        document.querySelector(".win").textContent = computerWin
+        tie.textContent = "Computer won! 😞,press restart or reset to continue"
+        positions.forEach(pos => pos.classList.add("disabled"))
+    }
+    if(!playerWon() && !computerWon()){
+            let availableCells = []
+            for(let cell of cells){
+                if(!(cell.textContent === "X" || cell.textContent === "O")){
+                    availableCells.push(cell);
+                }
+            }
+            if(availableCells.length === 0){
+                tie.textContent = "It's a tie!"
+            }else{
+                tie.textContent = ""
+            }
+        }
+});
 
 // restart game
 restart.addEventListener("click", () =>{
@@ -58,6 +96,7 @@ restart.addEventListener("click", () =>{
             positions[i].classList.remove("disabled")
         }
     }
+    tie.textContent = ""
     
 })
 // reset game
@@ -73,7 +112,11 @@ reset.addEventListener("click", () =>{
         document.querySelector(".playerhaswon").textContent = 0
         document.querySelector(".win").textContent = 0
         playerWin = 0
+        computerWin = 0
+        
     }
+    tie.textContent = ""
+
 })
 
 // player won
@@ -85,6 +128,29 @@ function playerWon() {
     cells.forEach((cell,idx) => {
         idx = Number(idx)
         if(cell.textContent === "X"){
+            cellsOccupied.push(idx)
+        }
+    })
+    // check if player won
+    for(let combo of winningCombos){
+        if (combo.every(idx => cellsOccupied.includes(idx))) {
+            return true
+        }
+    }
+    return false
+    
+}
+
+
+// computer won
+function computerWon() {
+    // winning combos
+    const winningCombos = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+    let cellsOccupied = []
+    // check
+    cells.forEach((cell,idx) => {
+        idx = Number(idx)
+        if(cell.textContent === "O"){
             cellsOccupied.push(idx)
         }
     })
