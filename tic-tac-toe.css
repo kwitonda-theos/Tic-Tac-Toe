@@ -74,6 +74,27 @@ body{
     background-color: #0b1a2a;
     transition: all 0.3s ease;
 }
+.reset{
+    display: block;
+    margin: 20px auto;
+    padding: 10px 50px;
+    font-size: 1rem;
+    background-color: #102E4A;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.reset:hover{
+    background-color: #0b1a2a;
+    transition: all 0.3s ease;
+}
+.gamebtns{
+    display: flex;
+    margin: 0px 200px;
+    gap: 20px;
+
+}
 
 /* Right Side */
 .part{
@@ -121,7 +142,7 @@ body{
 
 .played{
     color: #102E4A;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
 }
 .play{
     background-color: #FFF7E6;
